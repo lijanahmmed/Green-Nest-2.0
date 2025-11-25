@@ -2,11 +2,13 @@
 
 import { AuthContext } from "@/Context/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const {
     createUserWithEmailAndPasswordFunc,
     logInWithGoogleFunc,
@@ -45,6 +47,7 @@ export default function RegisterPage() {
         })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
+            router.push("/");
           })
           .catch((error) => {
             toast.error(error.message);
@@ -62,6 +65,7 @@ export default function RegisterPage() {
     logInWithGoogleFunc()
       .then((result) => {
         setUser(result.user);
+        router.push("/");
       })
       .catch((error) => {
         toast.error(error.message);

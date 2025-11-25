@@ -1,12 +1,26 @@
 "use client";
 
+import { AuthContext } from "@/Context/AuthContext";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useContext } from "react";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
+  const router = useRouter();
   const pathname = usePathname();
-  const loading = false;
-  const user = false;
+  const { user, loading, logOutFunc } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOutFunc()
+      .then(() => {
+        toast.info("Your account has been logged out");
+        router.push("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   const activeClass = (path) =>
     pathname === path ? "text-green-600 font-bold underline" : "";
@@ -101,7 +115,7 @@ export default function Navbar() {
             <div tabIndex={0} role="button" className="m-1 cursor-pointer">
               <img
                 className="w-10 h-10 object-cover rounded-full"
-                src={user.photoURL}
+                src={user?.photoURL}
                 alt=""
               />
             </div>
@@ -109,10 +123,15 @@ export default function Navbar() {
               tabIndex={0}
               className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm space-y-3"
             >
+              <li className="font-bold">{user.displayName}</li>
               <li>Add Plant</li>
               <li>Manage Plants</li>
               <li>
-                <button type="button" className="btn bg-gradient-to-r from-green-600 to-green-400 text-white">
+                <button
+                  type="button"
+                  onClick={handleLogOut}
+                  className="btn bg-gradient-to-r from-green-600 to-green-400 text-white"
+                >
                   Log Out
                 </button>
               </li>
@@ -120,10 +139,16 @@ export default function Navbar() {
           </div>
         ) : (
           <div className="flex gap-2">
-            <Link className="btn bg-gradient-to-r from-green-600 to-green-400 text-white" href="/login">
+            <Link
+              className="btn bg-gradient-to-r from-green-600 to-green-400 text-white"
+              href="/login"
+            >
               Login
             </Link>
-            <Link className="btn bg-gradient-to-r from-green-600 to-green-400 text-white" href="/register">
+            <Link
+              className="btn bg-gradient-to-r from-green-600 to-green-400 text-white"
+              href="/register"
+            >
               Register
             </Link>
           </div>
