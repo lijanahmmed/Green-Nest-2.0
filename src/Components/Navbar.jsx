@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
   const loading = false;
-  const user = true;
+  const user = false;
 
   const activeClass = (path) =>
     pathname === path ? "text-green-600 font-bold underline" : "";
