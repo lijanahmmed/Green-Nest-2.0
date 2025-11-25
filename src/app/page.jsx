@@ -1,9 +1,11 @@
 import Banner from "@/Components/Banner";
+import Hero from "@/Components/Hero";
 import PlantsCare from "@/Components/PlantsCare";
 
 export default function Home() {
   return (
     <div>
+      <Hero></Hero>
       <Banner></Banner>
       <PlantsCare></PlantsCare>
     </div>

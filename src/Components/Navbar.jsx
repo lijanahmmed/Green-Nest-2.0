@@ -112,7 +112,7 @@ export default function Navbar() {
               <li>Add Plant</li>
               <li>Manage Plants</li>
               <li>
-                <button type="button" className="btn bg-green-600 text-white">
+                <button type="button" className="btn bg-gradient-to-r from-green-600 to-green-400 text-white">
                   Log Out
                 </button>
               </li>
@@ -120,10 +120,10 @@ export default function Navbar() {
           </div>
         ) : (
           <div className="flex gap-2">
-            <Link className="btn bg-green-600 text-white" href="/login">
+            <Link className="btn bg-gradient-to-r from-green-600 to-green-400 text-white" href="/login">
               Login
             </Link>
-            <Link className="btn bg-green-600 text-white" href="/register">
+            <Link className="btn bg-gradient-to-r from-green-600 to-green-400 text-white" href="/register">
               Register
             </Link>
           </div>
