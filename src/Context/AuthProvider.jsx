@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -10,7 +12,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../Firebase/Firebase.config";
+import { auth } from "@/Firebase/firebase.config";
 import { AuthContext } from "./AuthContext";
 
 const googleProvider = new GoogleAuthProvider();
@@ -71,7 +73,7 @@ const AuthProvider = ({ children }) => {
     setLoading,
   };
 
-  return <AuthContext value={authInfo}>{children}</AuthContext>;
+  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;
