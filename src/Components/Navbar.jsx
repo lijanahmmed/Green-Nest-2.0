@@ -23,25 +23,38 @@ export default function Navbar() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
           </div>
 
-          {/* Mobile Menu */}
           <ul
             tabIndex={-1}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link className={activeClass("/")} href="/">Home</Link>
+              <Link className={activeClass("/")} href="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link className={activeClass("/plants")} href="/plants">Plants</Link>
+              <Link className={activeClass("/plants")} href="/plants">
+                Plants
+              </Link>
             </li>
             <li>
-              <Link className={activeClass("/my-profile")} href="/my-profile">My Profile</Link>
+              <Link className={activeClass("/about")} href="/about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link className={activeClass("/my-profile")} href="/my-profile">
+                My Profile
+              </Link>
             </li>
           </ul>
         </div>
@@ -55,22 +68,31 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Desktop Menu */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link className={activeClass("/")} href="/">Home</Link>
+            <Link className={activeClass("/")} href="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link className={activeClass("/plants")} href="/plants">Plants</Link>
+            <Link className={activeClass("/plants")} href="/plants">
+              Plants
+            </Link>
           </li>
           <li>
-            <Link className={activeClass("/my-profile")} href="/my-profile">My Profile</Link>
+            <Link className={activeClass("/about")} href="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className={activeClass("/my-profile")} href="/my-profile">
+              My Profile
+            </Link>
           </li>
         </ul>
       </div>
 
-      {/* Right Section */}
       <div className="navbar-end">
         {loading ? (
           <span className="loading loading-spinner loading-xl"></span>
@@ -90,10 +112,7 @@ export default function Navbar() {
               <li>Add Plant</li>
               <li>Manage Plants</li>
               <li>
-                <button
-                  type="button"
-                  className="btn bg-green-600 text-white"
-                >
+                <button type="button" className="btn bg-green-600 text-white">
                   Log Out
                 </button>
               </li>
