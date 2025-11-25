@@ -24,7 +24,7 @@ const swiperData = [
 
 export default function Banner() {
   return (
-    <div className="mx-auto bg-green-200 py-4 mt-1">
+    <div className="mx-auto bg-gradient-to-r from-green-400 via-green-300 to-green-400 py-4 mt-1">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         spaceBetween={30}
