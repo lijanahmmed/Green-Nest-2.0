@@ -52,8 +52,8 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link className={activeClass("/my-profile")} href="/my-profile">
-                My Profile
+              <Link className={activeClass("/contact")} href="/contact">
+                Contact
               </Link>
             </li>
           </ul>
@@ -86,8 +86,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link className={activeClass("/my-profile")} href="/my-profile">
-              My Profile
+            <Link className={activeClass("/contact")} href="/contact">
+              Contact
             </Link>
           </li>
         </ul>
