@@ -21,7 +21,7 @@ export default function AddPlantPage() {
       price,
     };
 
-    fetch("http://localhost:5000/plant", {
+    fetch("https://green-nest-server.vercel.app/plant", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export default function AddPlantPage() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success("Plant is added successfully!!")
+        toast.success("Plant is added successfully!!");
       })
       .catch((err) => {
         console.log(err);

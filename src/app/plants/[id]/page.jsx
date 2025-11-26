@@ -11,7 +11,7 @@ export default function DetailsPage() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("http://localhost:5000/plants")
+    fetch("https://green-nest-server.vercel.app/plants")
       .then((res) => res.json())
       .then((data) => {
         const showDetails = data.find((p) => p._id === id);

@@ -13,7 +13,7 @@ export default function ManagePlantsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/plants")
+    fetch("https://green-nest-server.vercel.app/plants")
       .then((res) => res.json())
       .then((data) => {
         setPlants(data);
@@ -37,7 +37,7 @@ export default function ManagePlantsPage() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/plants/${id}`, {
+        fetch(`https://green-nest-server.vercel.app/plants/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

@@ -14,10 +14,9 @@ export default function PlantsPage() {
     : plants;
 
   useEffect(() => {
-    fetch("http://localhost:5000/plants")
+    fetch("https://green-nest-server.vercel.app/plants")
       .then((res) => res.json())
       .then((data) => {
-        
         setPlants(data);
         setLoading(false);
       })
@@ -27,8 +26,6 @@ export default function PlantsPage() {
   if (loading) {
     return <Loading></Loading>;
   }
-
-
 
   return (
     <div className="mt-15 w-11/12 md:w-10/12 mx-auto">
@@ -41,7 +38,7 @@ export default function PlantsPage() {
       </div>
 
       <div className="mt-10 flex justify-end">
-<label className="input w-50 md:w-80 ">
+        <label className="input w-50 md:w-80 ">
           <svg
             className="h-[1em] opacity-50"
             xmlns="http://www.w3.org/2000/svg"
