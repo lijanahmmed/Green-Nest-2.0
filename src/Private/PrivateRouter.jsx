@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/Context/AuthContext";
 import Loading from "@/Components/Loading";
@@ -10,16 +10,17 @@ export default function PrivateRoute({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
+    if (!loading && !user) {
       router.replace("/login");
     }
-  }, [user, router]);
+  }, [user, loading, router]);
 
   if (loading) {
     return <Loading></Loading>;
   }
-
-  if (user && user.email) {
-    return children;
+  if (!user) {
+    return null;
   }
+
+  return <>{children}</>;
 }
