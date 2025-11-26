@@ -7,11 +7,17 @@ import { useEffect, useState } from "react";
 export default function PlantsPage() {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const searchInput = search.trim().toLowerCase();
+  const searchPlants = searchInput
+    ? plants.filter((p) => p.title.toLowerCase().includes(searchInput))
+    : plants;
 
   useEffect(() => {
     fetch("http://localhost:5000/plants")
       .then((res) => res.json())
       .then((data) => {
+        
         setPlants(data);
         setLoading(false);
       })
@@ -21,6 +27,8 @@ export default function PlantsPage() {
   if (loading) {
     return <Loading></Loading>;
   }
+
+
 
   return (
     <div className="mt-15 w-11/12 md:w-10/12 mx-auto">
@@ -32,8 +40,35 @@ export default function PlantsPage() {
         </p>
       </div>
 
+      <div className="mt-10 flex justify-end">
+<label className="input w-50 md:w-80 ">
+          <svg
+            className="h-[1em] opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            type="search"
+            required
+            placeholder="Search"
+          />
+        </label>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-        {plants.map((plant) => (
+        {searchPlants.map((plant) => (
           <div key={plant._id}>
             <div className="card bg-base-100 shadow-sm p-3 hover:scale-105">
               <figure>
