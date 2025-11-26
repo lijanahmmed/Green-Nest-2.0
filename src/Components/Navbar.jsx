@@ -60,16 +60,7 @@ export default function Navbar() {
                 Plants
               </Link>
             </li>
-            <li>
-              <Link className={activeClass("/about")} href="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className={activeClass("/contact")} href="/contact">
-                Contact
-              </Link>
-            </li>
+
             <li>
               <Link className={activeClass("/add-plant")} href="/add-plant">
                 Add Plant
@@ -81,6 +72,16 @@ export default function Navbar() {
                 href="/manage-plants"
               >
                 Manage Plants
+              </Link>
+            </li>
+            <li>
+              <Link className={activeClass("/about")} href="/about">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link className={activeClass("/contact")} href="/contact">
+                Contact
               </Link>
             </li>
           </ul>
@@ -107,16 +108,7 @@ export default function Navbar() {
               Plants
             </Link>
           </li>
-          <li>
-            <Link className={activeClass("/about")} href="/about">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link className={activeClass("/contact")} href="/contact">
-              Contact
-            </Link>
-          </li>
+
           <li>
             <Link className={activeClass("/add-plant")} href="/add-plant">
               Add Plant
@@ -128,6 +120,16 @@ export default function Navbar() {
               href="/manage-plants"
             >
               Manage Plants
+            </Link>
+          </li>
+          <li>
+            <Link className={activeClass("/about")} href="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className={activeClass("/contact")} href="/contact">
+              Contact
             </Link>
           </li>
         </ul>

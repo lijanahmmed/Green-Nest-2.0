@@ -1,30 +1,22 @@
 "use client";
 
 import Loading from "@/Components/Loading";
-import { AuthContext } from "@/Context/AuthContext";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function PlantsPage() {
-  const { user } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email || !user?.accessToken) return;
-
-    fetch(`http://localhost:5000/plants?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch("http://localhost:5000/plants")
       .then((res) => res.json())
       .then((data) => {
         setPlants(data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [user]);
+  }, []);
 
   if (loading) {
     return <Loading></Loading>;

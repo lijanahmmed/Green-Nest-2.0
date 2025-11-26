@@ -1,32 +1,24 @@
 "use client";
 
 import Loading from "@/Components/Loading";
-import { AuthContext } from "@/Context/AuthContext";
 import { useParams, useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DetailsPage() {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
   const [plant, setPlant] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
-    if (!user?.email || !user?.accessToken) return;
-
-    fetch(`http://localhost:5000/plants/?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch("http://localhost:5000/plants")
       .then((res) => res.json())
       .then((data) => {
         const showDetails = data.find((p) => p._id === id);
         setPlant(showDetails);
         setLoading(false);
       });
-  }, [user, id]);
+  }, [id]);
 
   if (loading) {
     return <Loading></Loading>;
