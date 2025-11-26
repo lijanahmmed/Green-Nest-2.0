@@ -9,6 +9,7 @@ export default function PlantsPage() {
   const { user } = useContext(AuthContext);
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     if (!user?.email || !user?.accessToken) return;
 
@@ -25,8 +26,8 @@ export default function PlantsPage() {
       .catch((err) => console.log(err));
   }, [user]);
 
-  if(loading){
-    return <Loading></Loading>
+  if (loading) {
+    return <Loading></Loading>;
   }
 
   return (

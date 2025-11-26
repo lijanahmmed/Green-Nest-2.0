@@ -1,11 +1,43 @@
 "use client";
 
 import PrivateRoute from "@/Private/PrivateRouter";
+import { toast } from "react-toastify";
 
 export default function AddPlantPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("ok");
+
+    const title = e.target.title.value;
+    const image = e.target.photo.value;
+    const shortDescription = e.target.shortDescription.value;
+    const fullDescription = e.target.fullDescription.value;
+    const price = e.target.price.value;
+
+    const plantData = {
+      title,
+      image,
+      shortDescription,
+      fullDescription,
+      price,
+    };
+
+    fetch("http://localhost:5000/plant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(plantData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Plant is added successfully!!")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    e.target.reset();
   };
   return (
     <PrivateRoute>
