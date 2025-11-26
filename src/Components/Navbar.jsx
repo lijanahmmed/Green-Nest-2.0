@@ -70,6 +70,19 @@ export default function Navbar() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link className={activeClass("/add-plant")} href="/add-plant">
+                Add Plant
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={activeClass("/manage-plants")}
+                href="/manage-plants"
+              >
+                Manage Plants
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -104,6 +117,19 @@ export default function Navbar() {
               Contact
             </Link>
           </li>
+          <li>
+            <Link className={activeClass("/add-plant")} href="/add-plant">
+              Add Plant
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={activeClass("/manage-plants")}
+              href="/manage-plants"
+            >
+              Manage Plants
+            </Link>
+          </li>
         </ul>
       </div>
 
@@ -124,8 +150,7 @@ export default function Navbar() {
               className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm space-y-3"
             >
               <li className="font-bold">{user.displayName}</li>
-              <li>Add Plant</li>
-              <li>Manage Plants</li>
+              <li>{user.email}</li>
               <li>
                 <button
                   type="button"
