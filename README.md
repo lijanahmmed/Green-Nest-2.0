@@ -79,7 +79,7 @@
 ## Links
 
 - **Live Website:**  
-  https://green-nest-client-zdrj.vercel.app/
+  https://green-nest-client.vercel.app/
 
 - **Backend Server Repository:**  
   https://github.com/lijanahmmed/Green-Nest-Server
