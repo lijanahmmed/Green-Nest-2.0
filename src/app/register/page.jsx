@@ -128,7 +128,7 @@ export default function RegisterPage() {
                 </div>
                 <button
                   type="submit"
-                  className="btn bg-green-600 text-white mt-4"
+                  className="btn bg-gradient-to-r from-green-600 to-green-400 text-white mt-4"
                 >
                   Register
                 </button>
