@@ -57,23 +57,31 @@ export default function Navbar() {
             </li>
             <li>
               <Link className={activeClass("/plants")} href="/plants">
-                Plants
+                All Plants
               </Link>
             </li>
 
-            <li>
-              <Link className={activeClass("/add-plant")} href="/add-plant">
-                Add Plant
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={activeClass("/manage-plants")}
-                href="/manage-plants"
-              >
-                Manage Plants
-              </Link>
-            </li>
+            {user ? (
+              <li>
+                <Link className={activeClass("/add-plant")} href="/add-plant">
+                  Add Plant
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
+            {user ? (
+              <li>
+                <Link
+                  className={activeClass("/manage-plants")}
+                  href="/manage-plants"
+                >
+                  Manage Plants
+                </Link>
+              </li>
+            ) : (
+              ""
+            )}
             <li>
               <Link className={activeClass("/about")} href="/about">
                 About
@@ -105,23 +113,31 @@ export default function Navbar() {
           </li>
           <li>
             <Link className={activeClass("/plants")} href="/plants">
-              Plants
+              All Plants
             </Link>
           </li>
 
-          <li>
-            <Link className={activeClass("/add-plant")} href="/add-plant">
-              Add Plant
-            </Link>
-          </li>
-          <li>
-            <Link
-              className={activeClass("/manage-plants")}
-              href="/manage-plants"
-            >
-              Manage Plants
-            </Link>
-          </li>
+          {user ? (
+            <li>
+              <Link className={activeClass("/add-plant")} href="/add-plant">
+                Add Plant
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <li>
+              <Link
+                className={activeClass("/manage-plants")}
+                href="/manage-plants"
+              >
+                Manage Plants
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <Link className={activeClass("/about")} href="/about">
               About
