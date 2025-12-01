@@ -7,18 +7,20 @@ export default function AddPlantPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const title = e.target.title.value;
+    const plantName = e.target.name.value;
     const image = e.target.photo.value;
-    const shortDescription = e.target.shortDescription.value;
-    const fullDescription = e.target.fullDescription.value;
+    const description = e.target.description.value;
     const price = e.target.price.value;
+    const rating = e.target.rating.value;
+    const availableStock = e.target.stock.value;
 
     const plantData = {
-      title,
+      plantName,
       image,
-      shortDescription,
-      fullDescription,
+      description,
       price,
+      rating,
+      availableStock,
     };
 
     fetch("https://green-nest-server.vercel.app/plant", {
@@ -41,22 +43,22 @@ export default function AddPlantPage() {
   };
   return (
     <PrivateRoute>
-      <div className="card w-11/12 max-w-md mx-auto border border-purple-300 shadow-md shadow-purple-200 rounded-2xl mt-20">
+      <div className="card w-11/12 max-w-md mx-auto border border-green-300 shadow-md shadow-green-200 rounded-2xl mt-20">
         <div className="card-body p-6 relative">
           <h2 className="text-2xl font-bold text-center mb-6">Add plant</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="label font-medium text-black">Title</label>
+              <label className="label font-medium">Plant Name</label>
               <input
                 type="text"
-                name="title"
+                name="name"
                 required
                 className="input w-full rounded-lg focus:border-0"
-                placeholder="Title"
+                placeholder="Plant Name"
               />
             </div>
             <div>
-              <label className="label font-medium text-black">Photo URL</label>
+              <label className="label font-medium">Photo URL</label>
               <input
                 type="text"
                 name="photo"
@@ -67,32 +69,7 @@ export default function AddPlantPage() {
             </div>
 
             <div>
-              <label className="label font-medium text-black">
-                Short description
-              </label>
-              <textarea
-                name="shortDescription"
-                required
-                rows="3"
-                className="textarea w-full rounded-lg focus:border-0 h-[100px]"
-                placeholder="Short description"
-              ></textarea>
-            </div>
-            <div>
-              <label className="label font-medium text-black">
-                Full Description
-              </label>
-              <textarea
-                name="fullDescription"
-                required
-                rows="3"
-                className="textarea w-full rounded-lg focus:border-0 h-[200px]"
-                placeholder="Full description"
-              ></textarea>
-            </div>
-
-            <div>
-              <label className="label font-medium text-black">Price</label>
+              <label className="label font-medium">Price</label>
               <input
                 type="number"
                 name="price"
@@ -100,6 +77,37 @@ export default function AddPlantPage() {
                 className="input w-full rounded-lg focus:border-0"
                 placeholder="Price"
               />
+            </div>
+            <div>
+              <label className="label font-medium">Rating</label>
+              <input
+                type="number"
+                name="rating"
+                required
+                className="input w-full rounded-lg focus:border-0"
+                placeholder="Rating"
+              />
+            </div>
+            <div>
+              <label className="label font-medium">Available Stock</label>
+              <input
+                type="number"
+                name="stock"
+                required
+                className="input w-full rounded-lg focus:border-0"
+                placeholder="Available Stock"
+              />
+            </div>
+
+            <div>
+              <label className="label font-medium">Description</label>
+              <textarea
+                name="description"
+                required
+                rows="3"
+                className="textarea w-full rounded-lg focus:border-0 h-[200px]"
+                placeholder="Description"
+              ></textarea>
             </div>
 
             <button

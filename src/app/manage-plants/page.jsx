@@ -73,20 +73,19 @@ export default function ManagePlantsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
           {plants.map((plant) => (
             <div key={plant._id}>
               <div className="card bg-base-100 shadow-sm p-3 hover:scale-105">
                 <figure>
                   <img
-                    className="w-full h-56 object-cover"
+                    className="w-full h-48 object-cover"
                     src={plant.image}
                     alt="plant"
                   />
                 </figure>
                 <div className="space-y-1 mt-3">
-                  <h2 className="card-title">{plant.title}</h2>
-                  <p className="text-gray-400">{plant.shortDescription}</p>
+                  <h2 className="card-title">{plant.plantName}</h2>
                   <p className="">
                     <span className="text-md font-bold">Price: </span>
                     {plant.price} ৳

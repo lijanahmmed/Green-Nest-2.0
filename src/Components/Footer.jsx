@@ -1,4 +1,5 @@
-import { FaFacebook, FaInstagram, FaPinterest } from "react-icons/fa6";
+import Link from "next/link";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -19,17 +20,23 @@ export default function Footer() {
         <div>
           <h4 className="text-lg font-bold">Quick Links</h4>
           <ul className="space-y-2 mt-2">
-            <li className="text-gray-700">About</li>
-            <li className="text-gray-700">Contact</li>
-            <li className="text-gray-700">Privacy Policy</li>
+            <li className="text-gray-700 hover:underline">
+              <Link href="/about">About</Link>
+            </li>
+            <li className="text-gray-700 hover:underline">
+              <Link href="/contact">Contact</Link>
+            </li>
+            <li className="text-gray-700 hover:underline">
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
           </ul>
         </div>
         <div>
           <h4 className="text-lg font-bold">Social Media</h4>
           <div className="mt-2 flex gap-2">
-            <FaInstagram size={24} />
-            <FaFacebook size={24} />
-            <FaPinterest size={24} />
+            <a href="https://www.instagram.com"><FaInstagram size={24} /></a>
+            <a href="https://www.facebook.com"><FaFacebook size={24} /></a>
+            <a href="https://www.linkedin.com"><FaLinkedin size={24} /></a>
           </div>
         </div>
       </div>
