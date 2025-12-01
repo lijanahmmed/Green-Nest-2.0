@@ -10,7 +10,7 @@ export default function PlantsPage() {
   const [search, setSearch] = useState("");
   const searchInput = search.trim().toLowerCase();
   const searchPlants = searchInput
-    ? plants.filter((p) => p.title.toLowerCase().includes(searchInput))
+    ? plants.filter((p) => p.plantName.toLowerCase().includes(searchInput))
     : plants;
 
   useEffect(() => {
