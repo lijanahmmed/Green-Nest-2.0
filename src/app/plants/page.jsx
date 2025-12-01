@@ -64,7 +64,7 @@ export default function PlantsPage() {
         </label>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
         {searchPlants.map((plant) => (
           <div key={plant._id}>
             <div className="card bg-base-100 shadow-sm p-3 hover:scale-105">
@@ -75,18 +75,21 @@ export default function PlantsPage() {
                   alt="plant"
                 />
               </figure>
-              <div className="space-y-1 mt-3">
-                <h2 className="card-title">{plant.title}</h2>
-                <p className="text-gray-400">{plant.shortDescription}</p>
-                <p className="">
-                  <span className="text-md font-bold">Price: </span>
-                  {plant.price} ৳
-                </p>
-
+              <div className="space-y-3 mt-3">
+                <h2 className="card-title">{plant.plantName}</h2>
+                <div className="flex justify-between">
+                  <p className="py-2 px-4 bg-blue-100 rounded-3xl">
+                    <span className="text-md font-bold">Price: </span>
+                    {plant.price} ৳
+                  </p>
+                  <p className="font-bold btn bg-yellow-100 rounded-3xl">
+                    ⭐ {plant.rating}
+                  </p>
+                </div>
                 <div className="card-actions">
                   <Link
                     href={`/plants/${plant._id}`}
-                    className="btn w-full bg-gradient-to-r from-green-600 to-green-400 rounded-lg text-white"
+                    className="btn w-full bg-green-500 rounded-lg text-white"
                   >
                     View Details
                   </Link>

@@ -25,24 +25,47 @@ export default function DetailsPage() {
   }
 
   return (
+    // <div className="w-11/12 md:w-10/12 mx-auto mt-15">
+    //   <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+    //     <div>
+    //       <img className="w-full h-96 object-cover" src={plant.image} alt="" />
+    //     </div>
+    //     <div className="space-y-2">
+    //       <h3 className="text-xl font-bold">{plant.title}</h3>
+    //       <p className="text-gray-500">{plant.fullDescription}</p>
+    //       <p>
+    //         <span className="font-bold">Price : </span>
+    //         {plant.price}৳
+    //       </p>
+    //       <button
+    //         onClick={() => router.back()}
+    //         className="btn bg-gradient-to-r from-green-600 to-green-400 text-white rounded-md px-20 mt-5"
+    //       >
+    //         Go Back
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
     <div className="w-11/12 md:w-10/12 mx-auto mt-15">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div>
           <img className="w-full h-96 object-cover" src={plant.image} alt="" />
         </div>
         <div className="space-y-2">
-          <h3 className="text-xl font-bold">{plant.title}</h3>
-          <p className="text-gray-500">{plant.fullDescription}</p>
+          <h3 className="text-xl font-bold">{plant.plantName}</h3>
+          <p className="text-gray-500">{plant.description}</p>
           <p>
             <span className="font-bold">Price : </span>
             {plant.price}৳
           </p>
-          <button
-            onClick={() => router.back()}
-            className="btn bg-gradient-to-r from-green-600 to-green-400 text-white rounded-md px-20 mt-5"
-          >
-            Go Back
-          </button>
+          <p>
+            <span className="font-bold">Rating : </span>
+            {plant.rating} ⭐
+          </p>
+          <p>
+            <span className="font-bold">Available : </span>
+            {plant.availableStock} Pcs
+          </p>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="relative bg-green-100">
+    <div className="relative bg-green-100 md:py-10">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
