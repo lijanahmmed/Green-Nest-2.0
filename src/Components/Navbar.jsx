@@ -167,8 +167,14 @@ export default function Navbar() {
               tabIndex={0}
               className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-sm space-y-3"
             >
+              <li>
+                <Link className="border-b-2 border-green-500 text-green-600 font-bold hover:underline" href="/my-profile">
+                  My Profile
+                </Link>
+              </li>
               <li className="font-bold">{user.displayName}</li>
               <li>{user.email}</li>
+              
               <li>
                 <button
                   type="button"
